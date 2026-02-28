@@ -28,41 +28,44 @@
     </main>
 
     <script>
-        /* asynkroninen lataus ja tulostus */
-        async function loadData() {
-            try {
-                const response = await fetch('tietue.json');
-                if (!response.ok) throw new Error('Network response was not ok');
-                const data = await response.json();
-                render(data);
-            } catch (err) {
-                document.getElementById('vastaus').innerHTML = '<p>Tietoa ei pystytä hakemaan</p>';
-                console.error(err);
+      fetch('tietue.JSON')
+
+                // Tehtävä 1 tiedon haku koodista otettu
+                .then(function (response) {
+                    return response.json();
+                })
+
+                .then(function (responseJson) {
+                    kerro(responseJson);
+                })
+
+                .catch(function (error) {
+                    document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+                })
+
+            function kerro(obj) {
+                let tiedot = "<h1>" + obj.otsikko + "</h1><br>"
+                    + obj.kuvaus + "<br><hr>"
+                    + "<p><img src=" + obj.kuva + "></p>"
+
+                    + "<center><h3>" + "Opintojakso" + "</h3>" + "Nimi: " + obj.opintojakso.nimi + "<br>"
+                    + "Tunnus: " + obj.opintojakso.tunnus + "<br>"
+                    + "Opintopisteet: " + obj.opintojakso.opintopisteet + "<br></center>";
+
+
+                tiedot += "<p><h3> Aiheet </h3>";
+
+                for (var i = 0; i < obj.tekniikat.length; i++) {
+                    tiedot += "<b>Aihe: " + obj.tekniikat[i].aihe + "</b>";
+                    tiedot += " <a href=" + obj.tekniikat[i].linkki + ">" + obj.tekniikat[i].linkki + "</a>" + "<br>";
+                }
+                tiedot += "</p>";
+
+                document.getElementById("vastaus").innerHTML = tiedot;
+
             }
-        }
-
-        function render(obj) {
-            let tiedot = `<h1>${obj.otsikko}</h1>
-                          <p>${obj.kuvaus}</p>
-                          <hr>
-                          <p><img src="${obj.kuva}" alt="Kuva"></p>
-                          <center>
-                            <h3>Opintojakso</h3>
-                            Nimi: ${obj.opintojakso.nimi}<br>
-                            Tunnus: ${obj.opintojakso.tunnus}<br>
-                            Opintopisteet: ${obj.opintojakso.opintopisteet}<br>
-                          </center>
-                          <h3>Aiheet</h3>`;
-
-            obj.tekniikat.forEach(item => {
-                tiedot += `<b>Aihe: ${item.aihe}</b> <a href="${item.linkki}">${item.linkki}</a><br>`;
-            });
-
-            document.getElementById('vastaus').innerHTML = tiedot;
-        }
-
-        loadData();
     </script>
 </body>
 
 </html>
+
