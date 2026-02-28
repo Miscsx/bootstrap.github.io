@@ -38,7 +38,7 @@
                 var tiedot = '<h1>' + obj.nimi + '</h1>' +
                             '<p>' + obj.osallistujat.lukumaara + '</p>' +
                             '<p>' + obj.osallistujat.nimet.join(', ') + '</p>' +
-                            '<p>' + obj.alku + ' - ' + obj.loppu + '</p>' +
+                            '<p>' + obj.aika + '</p>' +
                             '<p>' + obj.kesto + '</p>' +
                             '<p><img src="' + obj.kuva + '" alt="kuva"></p>';
                 document.getElementById('vastaus').innerHTML = tiedot;
@@ -52,6 +52,7 @@
 </body>
 
 </html>
+
 
 
 
