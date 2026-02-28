@@ -1,4 +1,4 @@
-/* basic typography and layout */
+/* tekstin muokkaus */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -10,7 +10,7 @@ main {
     padding: 1rem;
 }
 
-/* navigation styles */
+/* navigaatio tyyli */
 .navbar {
     background-color: #f0f0f0;
     padding: 0.5rem 1rem;
@@ -33,14 +33,14 @@ main {
     text-decoration: underline;
 }
 
-/* image should fill container */
+/* kuva täyttää "containerin" */
 img {
     max-width: 100%;
     height: auto;
 }
 
-/* utility helpers */
 .container {
     max-width: 800px;
     margin: 0 auto;
+
 }
