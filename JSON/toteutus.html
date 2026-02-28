@@ -43,10 +43,10 @@
 
         function kerro(obj) {
             var tiedot = "<h1>" + obj.nimi + "</h1>";
-            tiedot +=  obj.osallistujat.lukumaara;
-            tiedot +=  obj.osallistujat.nimet.join;
-            tiedot +=  obj.alku + obj.loppu;
-            tiedot +=  obj.kesto;
+            tiedot += + obj.osallistujat.lukumaara;
+            tiedot += + obj.osallistujat.nimet.join;
+            tiedot += + obj.alku + obj.loppu;
+            tiedot += + obj.kesto;
             tiedot += "<p><img src=\"" + obj.kuva + "\" alt=\"kuva\"></p>";
 
             document.getElementById('vastaus').innerHTML = tiedot;
@@ -56,4 +56,5 @@
 </body>
 
 </html>
+
 
