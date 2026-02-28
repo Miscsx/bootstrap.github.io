@@ -41,12 +41,12 @@
                 console.error(error);
             });
 
-        function kerro(obj) {
+       function kerro(obj) {
             var tiedot = "<h1>" + obj.nimi + "</h1>";
-            tiedot += + obj.osallistujat.lukumaara;
-            tiedot += + obj.osallistujat.nimet.join;
-            tiedot += + obj.alku + obj.loppu;
-            tiedot += + obj.kesto;
+            tiedot += "<p>Osallistujat: " + obj.osallistujat.lukumaara + "</p>";
+            tiedot += "<p>Nimet: " + obj.osallistujat.nimet.join(', ') + "</p>";
+            tiedot += "<p>Aika: " + obj.aika + "</p>";
+            tiedot += "<p>Kesto: " + obj.kesto + "</p>";
             tiedot += "<p><img src=\"" + obj.kuva + "\" alt=\"kuva\"></p>";
 
             document.getElementById('vastaus').innerHTML = tiedot;
@@ -56,5 +56,6 @@
 </body>
 
 </html>
+
 
 
